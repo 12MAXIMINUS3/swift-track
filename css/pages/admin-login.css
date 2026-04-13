@@ -1,0 +1,40 @@
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-primary);
+  padding: 2rem;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 440px;
+}
+
+.login-card {
+  padding: 3rem 2rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.input-icon-wrap {
+  position: relative;
+}
+
+.input-icon-wrap i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  width: 18px;
+  height: 18px;
+}
+
+.input-icon-wrap input {
+  padding-left: 2.75rem;
+}
+
+input:focus + i, .input-icon-wrap:focus-within i {
+  color: var(--color-accent);
+}

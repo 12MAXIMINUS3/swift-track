@@ -1,0 +1,146 @@
+.track-search {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-form {
+  display: flex;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-input-wrap {
+  position: relative;
+  flex-grow: 1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-white);
+  opacity: 0.7;
+}
+
+.search-input-wrap input {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: none;
+  background: transparent;
+  color: var(--color-white);
+  font-size: 1.125rem;
+  outline: none;
+}
+
+.search-input-wrap input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-form .btn {
+  padding: 0 2rem;
+}
+
+/* Result Dashboard */
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-block h5 {
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-surface-200);
+  border: 2px solid var(--color-white);
+  z-index: 2;
+  box-shadow: 0 0 0 1px var(--color-border);
+}
+
+.timeline-item.active .timeline-marker {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-hover);
+}
+
+.timeline-content {
+  background: var(--color-surface-50);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.timeline-date {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline-status {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-location {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    flex-direction: column;
+  }
+  .search-form .btn {
+    padding: 1rem;
+  }
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

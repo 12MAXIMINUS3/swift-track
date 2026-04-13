@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwiftTrack | Worldwide Logistics & Package Tracking</title>
+  <meta name="description" content="SwiftTrack provides premium global logistics, expressive delivery, and real-time package tracking.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="css/pages/home.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      
+      <!-- Background Slider -->
+      <div class="hero-slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=2000&auto=format&fit=crop');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1494412574643-fc030f2fb643?q=80&w=2000&auto=format&fit=crop');"></div>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-container">
+        <div class="hero-content" data-animate="slide-up">
+          <div class="badge-new mb-2">
+            <span class="badge-dot"></span> Next-gen global logistics
+          </div>
+          <h1 class="hero-title">Reliable Delivery, <br><span class="text-accent">Anywhere</span> in the World.</h1>
+          <p class="hero-subtitle">Experience lightning-fast shipping with real-time tracking, transparent pricing, and 24/7 customer support.</p>
+          
+          <div class="hero-actions">
+            <form id="heroTrackForm" class="hero-track-form" style="display: flex; gap: 0.5rem; width: 100%; max-width: 400px; margin-bottom: 1rem;">
+              <input type="text" id="heroTrackingCode" class="form-control" placeholder="Tracking code (e.g. SFT-...)" required style="flex-grow:1;">
+              <button type="submit" class="btn btn-primary" id="heroTrackBtn">
+                <i data-lucide="search"></i> Track
+              </button>
+            </form>
+            <div style="display: flex; gap: 1rem;">
+              <a href="services.html" class="btn btn-secondary btn-lg" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.2);">
+                 Our Services <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="hero-trust">
+            <div class="trust-avatars">
+              <img src="https://ui-avatars.com/api/?name=J&background=random" alt="User">
+              <img src="https://ui-avatars.com/api/?name=M&background=random" alt="User">
+              <img src="https://ui-avatars.com/api/?name=R&background=random" alt="User">
+            </div>
+            <span><strong>4.9/5</strong> from 10,000+ businesses</span>
+          </div>
+        </div>
+        
+        <div class="hero-image-wrapper" data-animate="slide-in-right">
+          <!-- Represents an abstract modern logistics tracking graphic -->
+          <div class="floating-card glass">
+            <div class="card-header">
+              <i data-lucide="map-pin" style="color: var(--color-accent)"></i>
+              <span>Live Tracking</span>
+            </div>
+            <div class="tracking-pulse">
+              <div class="origin" id="homeOrigin">NY</div>
+              <div class="line">
+                <div class="progress"></div>
+              </div>
+              <div class="dest" id="homeDest">LDN</div>
+            </div>
+            <div class="status-row">
+              <span id="homeBadgeContainer"><span class="badge badge-in-transit">In Transit</span></span>
+              <span class="est" id="homeEst">Est: Tomorrow, 10 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-bg-shapes"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="grid-4">
+          <div class="stat-card" data-animate="fade-in">
+            <div class="stat-icon"><i data-lucide="globe-2"></i></div>
+            <h3 class="stat-number" data-target="150">0</h3>
+            <p>Countries Served</p>
+          </div>
+          <div class="stat-card" data-animate="fade-in" class="delay-100">
+            <div class="stat-icon"><i data-lucide="package-check"></i></div>
+            <h3 class="stat-number" data-target="500" data-suffix="k+">0</h3>
+            <p>Packages Delivered</p>
+          </div>
+          <div class="stat-card" data-animate="fade-in" class="delay-200">
+            <div class="stat-icon"><i data-lucide="users"></i></div>
+            <h3 class="stat-number" data-target="10" data-suffix="k+">0</h3>
+            <p>Happy Clients</p>
+          </div>
+          <div class="stat-card" data-animate="fade-in" class="delay-300">
+            <div class="stat-icon"><i data-lucide="shield-check"></i></div>
+            <h3 class="stat-number" data-target="99" data-suffix="%">0</h3>
+            <p>On-Time Rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid View -->
+    <section class="home-services section-padding bg-light">
+      <div class="container">
+        <div class="section-header text-center" data-animate="slide-up">
+          <span class="text-accent fw-bold text-uppercase" style="letter-spacing: 2px;">What We Do</span>
+          <h2>Our Logistics Solutions</h2>
+          <p>We provide tailored shipping services to meet your personal and business needs.</p>
+        </div>
+        
+        <div class="grid-3 mt-4">
+          <div class="service-card card card-hover" data-animate="slide-up">
+            <div class="service-icon"><i data-lucide="zap"></i></div>
+            <h3>Express Delivery</h3>
+            <p>Priority shipping for time-sensitive packages. Delivery within 24-48 hours worldwide.</p>
+            <a href="services.html" class="service-link">Learn more <i data-lucide="arrow-right" style="width: 16px;"></i></a>
+          </div>
+          <div class="service-card card card-hover" data-animate="slide-up" class="delay-100">
+            <div class="service-icon"><i data-lucide="truck"></i></div>
+            <h3>Standard Freight</h3>
+            <p>Cost-effective road and rail transport for large volumes and non-urgent deliveries.</p>
+            <a href="services.html" class="service-link">Learn more <i data-lucide="arrow-right" style="width: 16px;"></i></a>
+          </div>
+          <div class="service-card card card-hover" data-animate="slide-up" class="delay-200">
+            <div class="service-icon"><i data-lucide="plane"></i></div>
+            <h3>International Air</h3>
+            <p>Global reach with our extensive air freight network ensuring safe border transfers.</p>
+            <a href="services.html" class="service-link">Learn more <i data-lucide="arrow-right" style="width: 16px;"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works section-padding">
+      <div class="container">
+        <div class="grid-2 align-items-center">
+          <div class="hiw-image" data-animate="fade-in">
+             <!-- Abstract graphic placeholder -->
+             <div class="hiw-graphic">
+               <div class="circle c1"></div>
+               <div class="circle c2"></div>
+               <div class="circle c3"></div>
+               <div class="truck-icon"><i data-lucide="truck" style="width: 64px; height: 64px;"></i></div>
+             </div>
+          </div>
+          <div class="hiw-content" data-animate="slide-in-right">
+            <h2>Seamless Shipping Process</h2>
+            <p class="mb-4">We've streamlined our logistics pipeline to make shipping effortless for you.</p>
+            
+            <div class="step-list">
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                  <h4>Create Shipment</h4>
+                  <p>Register your package details and instantly get a unique tracking code.</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                  <h4>We Collect & Route</h4>
+                  <p>Our fleet picks up your package and automatically routes it via the fastest path.</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                  <h4>Track & Receive</h4>
+                  <p>Monitor your package in real-time until it safely reaches its destination.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section section-padding bg-light">
+      <div class="container">
+        <div class="section-header text-center" data-animate="slide-up">
+          <h2>Trusted by Thousands</h2>
+          <p>See what our clients say about their experience with SwiftTrack.</p>
+        </div>
+        
+        <div class="reviews-grid mt-4">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container text-center" data-animate="zoom-in">
+        <h2 class="text-white mb-2">Ready to ship your next package?</h2>
+        <p class="text-white mb-4" style="opacity: 0.9; max-width: 600px; margin-inline: auto;">Join thousands of businesses who trust SwiftTrack for their logistics needs.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn" style="background: white; color: var(--color-primary);">Contact Sales</a>
+          <a href="track.html" class="btn btn-outline" style="border-color: white; color: white;">Track Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { renderHeader } from './js/components/header.js';
+    import { renderFooter } from './js/components/footer.js';
+    import { initHome } from './js/pages/home.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHeader('home');
+      renderFooter();
+      initHome();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

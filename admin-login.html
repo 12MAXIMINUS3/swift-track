@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | SwiftTrack</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/admin-login.css">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <main class="login-wrapper">
+    <div class="login-container" data-animate="slide-up">
+      <div class="login-card card">
+        <div class="text-center mb-4">
+          <a href="index.html" class="logo" style="justify-content: center; margin-bottom: 0.5rem; color: var(--color-primary);">
+            <i data-lucide="package" style="color: var(--color-accent); width: 28px; height: 28px;"></i>
+            SwiftTrack
+          </a>
+          <h2 class="text-primary mt-2">Staff Portal</h2>
+          <p class="text-muted text-sm">Please sign in with your admin credentials.</p>
+        </div>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <div class="input-icon-wrap">
+              <i data-lucide="mail"></i>
+              <input type="email" class="form-control" id="email" required placeholder="admin@swifttrack.com" autofocus>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-icon-wrap">
+              <i data-lucide="lock"></i>
+              <input type="password" class="form-control" id="password" required placeholder="••••••••">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="loginBtn">
+            Sign In
+          </button>
+        </form>
+
+        <div class="text-center mt-4">
+          <a href="index.html" class="text-muted text-sm" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            <i data-lucide="arrow-left" style="width: 14px;"></i> Back to Website
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { initScrollAnimations } from './js/utils/animations.js';
+    import { initAuth } from './js/pages/admin-login.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollAnimations();
+      initAuth();
+      lucide.createIcons();
+      
+      // Auto redirect if already logged in handled by JS
+    });
+  </script>
+</body>
+</html>

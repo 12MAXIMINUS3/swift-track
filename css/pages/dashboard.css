@@ -1,0 +1,257 @@
+.admin-body {
+  background-color: var(--color-surface-50);
+}
+
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: var(--color-white);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-nav {
+  padding: 1.5rem 1rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.nav-item i {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-item:hover, .nav-item.active {
+  background-color: var(--color-surface-100);
+  color: var(--color-accent);
+}
+
+.sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* prevents layout breaking, scroll handled inside views */
+}
+
+.topbar {
+  height: 70px;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  flex-shrink: 0;
+}
+
+.mobile-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.admin-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-surface-100);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+}
+
+.views-container {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.view-section {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.view-section.active {
+  display: block;
+}
+
+/* Stats */
+.stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Table overrides */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table th {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-surface-50);
+}
+
+.table tbody tr:hover {
+  background-color: var(--color-surface-50);
+}
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.search-input {
+  position: relative;
+  flex-grow: 1;
+}
+
+.search-input i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  width: 18px;
+}
+
+.search-input input {
+  padding-left: 2.5rem;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.d-none {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  
+  .mobile-toggle {
+    display: block;
+  }
+  
+  .filters-bar {
+    flex-direction: column;
+  }
+  
+  .filters-bar > div {
+    width: 100%;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}

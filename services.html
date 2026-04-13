@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | SwiftTrack</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/services.css">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="page-header" style="background: var(--color-primary);">
+      <div class="container text-center" data-animate="slide-up">
+        <h1 class="text-white">Our Services</h1>
+        <p class="text-white" style="opacity: 0.9;">Comprehensive logistic solutions tailored to your needs.</p>
+      </div>
+    </section>
+
+    <!-- Services Detailed -->
+    <section class="section-padding">
+      <div class="container">
+        
+        <!-- Service 1 -->
+        <div class="service-row">
+          <div class="sr-content" data-animate="slide-in-right">
+            <div class="sr-icon"><i data-lucide="zap"></i></div>
+            <h2>Express Delivery</h2>
+            <p>When time is of the essence, our Express Delivery service ensures your package reaches its destination in the shortest time possible. Priority handling, fastest routing, and dedicated support.</p>
+            <ul class="feature-list mt-3">
+              <li><i data-lucide="check"></i> 24-48 hours delivery</li>
+              <li><i data-lucide="check"></i> Real-time priority tracking</li>
+              <li><i data-lucide="check"></i> Premium packaging included</li>
+            </ul>
+          </div>
+          <div class="sr-image" data-animate="fade-in">
+            <img src="https://images.unsplash.com/photo-1549416556-9a2cddda5394?auto=format&fit=crop&q=80&w=800" alt="Express Delivery">
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-row reverse">
+          <div class="sr-content" data-animate="slide-in-right">
+            <div class="sr-icon"><i data-lucide="truck"></i></div>
+            <h2>Standard Freight</h2>
+            <p>Our most cost-effective solution for non-urgent deliveries. Perfect for large volumes, e-commerce stores, and B2B logistics relying on our vast road network.</p>
+            <ul class="feature-list mt-3">
+              <li><i data-lucide="check"></i> 3-5 days average delivery</li>
+              <li><i data-lucide="check"></i> Affordable bulk rates</li>
+              <li><i data-lucide="check"></i> Full tracking visibility</li>
+            </ul>
+          </div>
+          <div class="sr-image" data-animate="fade-in">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" alt="Standard Freight">
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-row">
+          <div class="sr-content" data-animate="slide-in-right">
+            <div class="sr-icon"><i data-lucide="plane"></i></div>
+            <h2>International Air</h2>
+            <p>Seamless international shipping. We handle customs clearance, border documentation, and provide direct flights to major global hubs.</p>
+            <ul class="feature-list mt-3">
+              <li><i data-lucide="check"></i> Over 150 countries covered</li>
+              <li><i data-lucide="check"></i> Customs handling included</li>
+              <li><i data-lucide="check"></i> Door-to-door service</li>
+            </ul>
+          </div>
+          <div class="sr-image" data-animate="fade-in">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=800" alt="International Air">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing / Features Table -->
+    <section class="section-padding bg-light">
+      <div class="container text-center">
+        <h2 class="mb-4" data-animate="slide-up">Compare Plans</h2>
+        <div class="pricing-grid" data-animate="slide-up">
+          
+          <div class="pricing-card card">
+            <h3>Standard</h3>
+            <p class="text-muted">For everyday shipping</p>
+            <ul class="pricing-features mt-3 mb-4">
+              <li>Tracking updates every 12h</li>
+              <li>Standard support</li>
+              <li>3-5 days delivery</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline" style="width: 100%;">Contact Us</a>
+          </div>
+
+          <div class="pricing-card card popular">
+            <div class="popular-badge">Most Popular</div>
+            <h3>Express</h3>
+            <p class="text-muted">For urgent business needs</p>
+            <ul class="pricing-features mt-3 mb-4">
+              <li>Live GPS tracking</li>
+              <li>24/7 Priority support</li>
+              <li>24-48 hours delivery</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" style="width: 100%;">Contact Us</a>
+          </div>
+
+          <div class="pricing-card card">
+            <h3>Freight</h3>
+            <p class="text-muted">For heavy or bulk cargo</p>
+            <ul class="pricing-features mt-3 mb-4">
+              <li>Palletized tracking</li>
+              <li>Dedicated account manager</li>
+              <li>Custom routing</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline" style="width: 100%;">Contact Us</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module">
+    import { renderHeader } from './js/components/header.js';
+    import { renderFooter } from './js/components/footer.js';
+    import { initScrollAnimations } from './js/utils/animations.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHeader('services');
+      renderFooter();
+      initScrollAnimations();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.service-row:last-child {
+  margin-bottom: 0;
+}
+
+.service-row.reverse .sr-content {
+  order: 2;
+}
+
+.service-row.reverse .sr-image {
+  order: 1;
+}
+
+.sr-icon {
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-surface-100);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.sr-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.sr-image img {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.feature-list li i {
+  color: var(--color-success);
+  width: 20px;
+  height: 20px;
+}
+
+/* Pricing */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.pricing-card.popular {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-xl);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-accent);
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pricing-features {
+  text-align: left;
+}
+
+.pricing-features li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-main);
+}
+
+.pricing-features li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 992px) {
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  .service-row.reverse .sr-content { order: 1; }
+  .service-row.reverse .sr-image { order: 2; }
+  
+  .sr-icon {
+    margin: 0 auto 1.5rem;
+  }
+  
+  .feature-list li {
+    justify-content: center;
+  }
+  
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .pricing-card.popular {
+    transform: none;
+  }
+}

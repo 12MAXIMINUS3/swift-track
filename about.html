@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | SwiftTrack</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/about.css">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container text-center" data-animate="slide-up">
+        <h1 class="text-white">About SwiftTrack</h1>
+        <p class="text-white" style="opacity: 0.9;">Connecting the world through reliable, transparent, and fast logistics.</p>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="grid-2 align-items-center">
+          <div data-animate="fade-in">
+            <!-- abstract graphic -->
+            <div class="story-image">
+              <div class="layer layer-1"></div>
+              <div class="layer layer-2"></div>
+              <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=800" alt="Logistics Warehouse" style="border-radius: var(--radius-lg); position: relative; z-index: 3;">
+            </div>
+          </div>
+          <div class="story-content" data-animate="slide-in-right">
+            <span class="text-accent fw-bold text-uppercase mb-1" style="display: block; letter-spacing: 2px;">Our Story</span>
+            <h2 class="mb-3">Redefining Global Delivery Standards</h2>
+            <p>Founded in 2026, SwiftTrack started with a simple mission: to make international shipping as easy and transparent as sending an email. We realized that businesses and individuals were frustrated by opaque pricing, delayed tracking, and poor customer service.</p>
+            <p>Today, we operate in over 150 countries, leveraging cutting-edge technology and a dedicated fleet to ensure your packages arrive on time, every time. Our commitment to excellence has made us the trusted logistics partner for thousands of businesses worldwide.</p>
+            
+            <div class="mission-vision mt-4">
+              <div class="mv-card card">
+                <i data-lucide="target" style="color: var(--color-accent); margin-bottom: 1rem;"></i>
+                <h4>Our Mission</h4>
+                <p class="text-sm">To provide fast, reliable, and accessible logistic solutions that empower global trade.</p>
+              </div>
+              <div class="mv-card card">
+                <i class="lucide-eye" data-lucide="eye" style="color: var(--color-accent); margin-bottom: 1rem;"></i>
+                <h4>Our Vision</h4>
+                <p class="text-sm">To be the world's most trusted and innovative delivery network.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="section-header text-center" data-animate="slide-up">
+          <h2>Our Core Values</h2>
+          <p>The principles that guide everything we do.</p>
+        </div>
+        
+        <div class="grid-4 mt-4">
+          <div class="value-card card text-center" data-animate="slide-up">
+            <div class="value-icon"><i data-lucide="shield"></i></div>
+            <h4>Reliability</h4>
+            <p class="text-sm">We keep our promises. When we say a package will be there, it will be there.</p>
+          </div>
+          <div class="value-card card text-center" data-animate="slide-up" class="delay-100">
+            <div class="value-icon"><i data-lucide="search"></i></div>
+            <h4>Transparency</h4>
+            <p class="text-sm">No hidden fees, no black holes. Real-time updates every step of the way.</p>
+          </div>
+          <div class="value-card card text-center" data-animate="slide-up" class="delay-200">
+            <div class="value-icon"><i data-lucide="zap"></i></div>
+            <h4>Speed</h4>
+            <p class="text-sm">Optimized routing and a dedicated fleet ensure the fastest delivery times possible.</p>
+          </div>
+          <div class="value-card card text-center" data-animate="slide-up" class="delay-300">
+            <div class="value-icon"><i data-lucide="heart"></i></div>
+            <h4>Customer First</h4>
+            <p class="text-sm">We treat every package as if it were our own and every customer with respect.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module">
+    import { renderHeader } from './js/components/header.js';
+    import { renderFooter } from './js/components/footer.js';
+    import { initScrollAnimations } from './js/utils/animations.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHeader('about');
+      renderFooter();
+      initScrollAnimations();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

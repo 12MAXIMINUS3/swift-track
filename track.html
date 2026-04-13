@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Package | SwiftTrack</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/track.css">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-light">
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="track-header" style="background: var(--color-primary); padding: 4rem 0;">
+      <div class="container text-center" data-animate="slide-up">
+        <h1 class="text-white mb-2">Track Your Shipment</h1>
+        <p class="text-white mb-4" style="opacity: 0.9;">Enter your tracking number below to get real-time updates.</p>
+        
+        <div class="track-search">
+          <form id="trackForm" class="search-form">
+            <div class="search-input-wrap">
+              <i data-lucide="search" class="search-icon"></i>
+              <input type="text" id="trackingCodeInput" placeholder="e.g. SFT-2026-ABCDEF" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="trackSubmitBtn">Track Package</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="container">
+        
+        <!-- Loading State -->
+        <div id="trackLoading" class="d-none">
+          <div class="card p-4">
+            <div class="skeleton" style="height: 40px; width: 30%; margin-bottom: 2rem;"></div>
+            <div class="grid-2">
+              <div class="skeleton" style="height: 100px;"></div>
+              <div class="skeleton" style="height: 100px;"></div>
+            </div>
+            <div class="skeleton mt-4" style="height: 200px;"></div>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="trackEmpty" class="text-center" style="padding: 4rem 0;" data-animate="fade-in">
+          <i data-lucide="package-search" style="width: 80px; height: 80px; color: var(--color-border); margin-bottom: 1rem;"></i>
+          <h3>No Tracking Data Yet</h3>
+          <p class="text-muted">Enter a valid tracking code to see your shipment details.</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="trackError" class="card text-center d-none" style="border-color: var(--color-danger); max-width: 600px; margin: 0 auto;">
+          <i data-lucide="alert-triangle" style="width: 48px; height: 48px; color: var(--color-danger); margin-bottom: 1rem;"></i>
+          <h3 class="text-danger">Shipment Not Found</h3>
+          <p class="text-muted">We couldn't find a package with that tracking code. Please double-check the code and try again.</p>
+        </div>
+
+        <!-- Result State -->
+        <div id="trackResult" class="d-none">
+          <div class="track-dashboard">
+            
+            <!-- Main Info Card -->
+            <div class="card mb-4">
+              <div class="result-header">
+                <div>
+                  <p class="text-muted mb-1">Tracking Code</p>
+                  <h2 id="resCode">SFT-....</h2>
+                </div>
+                <div id="resBadgeWrapper">
+                  <!-- Badge -->
+                </div>
+              </div>
+
+              <hr style="border: none; border-top: 1px solid var(--color-border); margin: 1.5rem 0;">
+
+              <div class="grid-3 info-grid">
+                <div>
+                  <p class="text-muted mb-1"><i data-lucide="map-pin" style="width: 16px;"></i> Origin</p>
+                  <h4 id="resOrigin">-</h4>
+                </div>
+                <div>
+                  <p class="text-muted mb-1"><i data-lucide="map-pin" style="width: 16px;"></i> Destination</p>
+                  <h4 id="resDest">-</h4>
+                </div>
+                <div>
+                  <p class="text-muted mb-1"><i data-lucide="calendar" style="width: 16px;"></i> Est. Delivery</p>
+                  <h4 id="resEst">-</h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Details & Timeline Grid -->
+            <div class="grid-2" style="align-items: start;">
+              
+              <!-- Sender / Receiver Details -->
+              <div class="card">
+                <h3 class="mb-3">Shipment Details</h3>
+                
+                <div class="detail-block">
+                  <h5>Sender</h5>
+                  <p id="resSenderName">-</p>
+                  <p class="text-muted text-sm" id="resSenderAddress">-</p>
+                </div>
+                
+                <hr style="border: none; border-top: 1px solid var(--color-border); margin: 1.5rem 0;">
+                
+                <div class="detail-block">
+                  <h5>Receiver</h5>
+                  <p id="resReceiverName">-</p>
+                  <p class="text-muted text-sm" id="resReceiverAddress">-</p>
+                </div>
+
+                <hr style="border: none; border-top: 1px solid var(--color-border); margin: 1.5rem 0;">
+
+                <div class="detail-block">
+                  <h5>Package Info</h5>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem;">
+                     <div><span class="text-muted text-sm">Type:</span> <br><strong id="resType">-</strong></div>
+                     <div><span class="text-muted text-sm">Weight:</span> <br><strong id="resWeight">-</strong></div>
+                     <div><span class="text-muted text-sm">Method:</span> <br><strong id="resMethod">-</strong></div>
+                     <div><span class="text-muted text-sm">Dimensions:</span> <br><strong id="resDimensions">-</strong></div>
+                  </div>
+                </div>
+                
+              </div>
+
+              <!-- Timeline -->
+              <div class="card">
+                <h3 class="mb-4">Travel History</h3>
+                <div class="timeline" id="resTimeline">
+                  <!-- Generated via JS -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module">
+    import { renderHeader } from './js/components/header.js';
+    import { renderFooter } from './js/components/footer.js';
+    import { initScrollAnimations } from './js/utils/animations.js';
+    import { initTracking } from './js/pages/track.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHeader('');
+      renderFooter();
+      initScrollAnimations();
+      initTracking();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
